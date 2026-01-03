@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: my_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database_name
+    ports:
+      - "5432:5432"
+    volumes:
+      # We map to /var/lib/postgresql instead of /data
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
