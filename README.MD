@@ -66,6 +66,7 @@ Micro-Project(1)/
 │   └── schema.sql             # Database schema definitions
 │
 ├── 📂 models/
+│   ├── custom_loss.py         # Extra code (optional)
 │   └── train.py               # Model training & experiment logging
 │
 └── 📂 notebooks/

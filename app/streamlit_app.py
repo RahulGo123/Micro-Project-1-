@@ -76,8 +76,16 @@ if uploaded_file is not None:
         result = class_names[class_idx]
 
         # 7. Display Results
-        if result:
-            st.success(f"Prediction: {result} (Score: {score:.2f})")
+        st.write("### Results")
+        # If confidence is too low, don't risk a wrong guess
+        if confidence < 0.50:
+            st.warning(
+                f"⚠️ Low Confidence ({confidence:.2f}). Flagging for Human Review."
+            )
+            # In a real app, this would write to a 'manual_review' SQL table
+        else:
+            st.success(f"**Prediction:** {predicted_label}")
+            st.info(f"**Confidence:** {confidence:.2f}")
 
             # THE FEEDBACK LOOP
             try:
